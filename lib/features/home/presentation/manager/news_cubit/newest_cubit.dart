@@ -10,7 +10,7 @@ part 'newest_state.dart';
 
 class NewestCubit extends Cubit<NewestState> {
   NewestCubit(this.homeRepo) : super(NewestInitial());
-  final HomeRepo homeRepo;
+  final HomeRepoImpl homeRepo;
  void getNewestBook()async
   {
     emit(NewestLoading());

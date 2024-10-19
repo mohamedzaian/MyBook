@@ -1,4 +1,4 @@
-import 'package:app_books/core/utils/response_height.dart';
+import 'package:app_books/core/utils/response_height_width.dart';
 import 'package:app_books/features/home/data/model/book_model.dart';
 import 'package:app_books/features/home/presentation/widgets/custom_button.dart';
 import 'package:app_books/features/home/presentation/widgets/custom_image.dart';
@@ -38,7 +38,7 @@ class _DetailScreenBodyState extends State<DetailScreenBody> {
         DetailsAppBar(),
         ResponsiveImage(
             url: widget.bookSelected!.volumeInfo.imageLinks.thumbnail),
-        const ResponseHeight(ratio: 0.05),
+         SizedBox(height: ResponseItems.responsiveHeight(context, 10)),
         Container(
             width: MediaQuery.sizeOf(context).width * 0.8,
             child: CustomText(
@@ -46,18 +46,18 @@ class _DetailScreenBodyState extends State<DetailScreenBody> {
               size: 25,
               alignmentGeometry: Alignment.center,
             )),
-        const ResponseHeight(ratio: 0.02),
+        SizedBox(height: ResponseItems.responsiveHeight(context, 4)),
         CustomText(
           text: widget.bookSelected!.volumeInfo.authors.first,
           size: 18,
           alignmentGeometry: Alignment.center,
           color: Colors.grey,
         ),
-        const ResponseHeight(ratio: 0.06),
+        SizedBox(height: ResponseItems.responsiveHeight(context, 40)),
         CustomButton(
           url: widget.bookSelected!.volumeInfo.previewLink,
         ),
-        const ResponseHeight(ratio: 0.07),
+        SizedBox(height: ResponseItems.responsiveHeight(context, 40)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Align(
@@ -67,7 +67,7 @@ class _DetailScreenBodyState extends State<DetailScreenBody> {
                 size: 16,
               )),
         ),
-        const ResponseHeight(ratio: 0.07),
+        SizedBox(height: ResponseItems.responsiveHeight(context, 16)),
         BlocBuilder<SimilarCubit, SimilarState>(
           builder: (context, state) {
             if (state is SimilarSuccess) {

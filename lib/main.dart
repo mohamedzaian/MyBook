@@ -1,10 +1,10 @@
 import 'package:app_books/constant.dart';
 import 'package:app_books/core/theme/cubit/app_theme_cubit.dart';
 import 'package:app_books/core/theme/model/enum.dart';
-import 'package:app_books/core/utils/assets.dart';
 import 'package:app_books/features/home/data/repos/home_repo_impl.dart';
 import 'package:app_books/features/home/presentation/manager/featured_books_cubits/featured_cubit.dart';
 import 'package:app_books/features/home/presentation/manager/news_cubit/newest_cubit.dart';
+import 'package:app_books/features/home/presentation/manager/search_cubits/search_cubit.dart';
 import 'package:app_books/features/home/presentation/manager/similar_cubit/similar_cubit.dart';
 import 'package:app_books/features/splash/presentation/splash_screen.dart';
 import 'package:device_preview/device_preview.dart';
@@ -43,6 +43,8 @@ class MyApp extends StatelessWidget {
             create: (context) => FeaturedCubit(getIt.get<HomeRepoImpl>())..getFeatured(),
           ),  BlocProvider(
             create: (context) => SimilarCubit(getIt.get<HomeRepoImpl>())..getSimilar(),
+          ), BlocProvider(
+            create: (context) => SearchCubit()..getSearchItems(),
           ),
         ],
         child: GetMaterialApp(
